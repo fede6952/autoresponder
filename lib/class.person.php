@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * Class person
+ * @author Mike Lopez <e@coderscult.com>
+ */
+
 class person_structure {
 	var $id;
 	var $firstname;

@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * Class message
+ * @author Mike Lopez <e@coderscult.com>
+ */
+
 class message_structure {
 	var $id;
 	var $campaign_id;

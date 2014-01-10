@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * Class mailinglist
+ * @author Mike Lopez <e@coderscult.com>
+ */
+
 class mailinglist_structure {
 	var $id;
 	var $name;
