@@ -1,10 +1,11 @@
 <?php
 
+namespace crud;
+
 /**
- * Class that provides basic CRUD functionality
+ * CRUD class - a class that provides basic CRUD functionality
  * @author Mike Lopez <e@coderscult.com>
  */
-
 class crud {
 
 	/**
@@ -19,9 +20,9 @@ class crud {
 
 	/**
 	 * Add data to table
-	 * @global \mysqli $sql
+	 * @global mysqli $sql
 	 * @param array $data Associative array of data to add
-	 * @return mixed \mysqli::$insert_id|false
+	 * @return mixed mysqli::$insert_id|false
 	 */
 	function create($data) {
 		global $sql;
@@ -47,7 +48,7 @@ class crud {
 
 	/**
 	 * Read data from table
-	 * @global \mysqli $sql
+	 * @global mysqli $sql
 	 * @param array $where Associative array of fields to match rows for reading
 	 * @param array $fields Optional Associative array of fields to return
 	 * @return mixed array|false
@@ -75,11 +76,11 @@ class crud {
 
 	/**
 	 * Update data on table
-	 * @global \mysqli $sql
+	 * @global mysqli $sql
 	 * @param array $data Associative array of fields to update
 	 * @param array $where Associative array of fields to match rows for updating
-	 * @param type $empty_where_verify Optional verification if $where is empty
-	 * @return mixed \mysqli::$affected_rows|false
+	 * @param bool $empty_where_verify Optional verification if $where is empty
+	 * @return mixed mysqli::$affected_rows|false
 	 */
 	function update($data, $where, $empty_where_verify = false) {
 		global $sql;
@@ -114,10 +115,10 @@ class crud {
 
 	/**
 	 * Delete data from table
-	 * @global \mysqli $sql
+	 * @global mysqli $sql
 	 * @param array $where Associative array of fields to match rows for deleting
-	 * @param type $empty_where_verify Optional verification if $where is empty
-	 * @return mixed \mysqli::$affected_rows|false
+	 * @param bool $empty_where_verify Optional verification if $where is empty
+	 * @return mixed mysqli::$affected_rows|false
 	 */
 	function delete($where, $empty_where_verify = false) {
 		global $sql;
@@ -139,7 +140,8 @@ class crud {
 
 	/**
 	 * Converts passed array to a mysql WHERE statement
-	 * @param array &$where
+	 * @internal
+	 * @param array $where passed by reference
 	 */
 	private function _create_where(&$where) {
 		if (is_array($where) && !empty($where)) {
@@ -160,7 +162,8 @@ class crud {
 
 	/**
 	 * Serializes and escapes data. Serialization only happens if needed
-	 * @global \mysqli $sql
+	 * @internal
+	 * @global mysqli $sql
 	 * @param mixed $value
 	 * @return string
 	 */
